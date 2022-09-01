@@ -1,0 +1,74 @@
+    1  pwd
+    2  cd Downloads
+    3  cd Downloads/
+    4  cd
+    5  cd Downloads/
+    6  cd
+    7  mkdir praccomp
+    8  ls
+    9  cd praccomp
+   10  ls
+   11  touch test.txt
+   12  ls
+   13  ls -la
+   14  clear
+   15  ls
+   16  ls -l
+   17  ls -l/..
+   18  clear
+   19  ls -h
+   20  clear
+   21  ls -lah
+   22  la -lh
+   23  echo $PATH
+   24  echo $HOME
+   25  echo $USER
+   26  ls
+   27  less test.txt
+   28  nano
+   29  less test.txt
+   30  nano test.txt
+   31  less test.txt
+   32  ls -lh
+   33  rm test.txt
+   34  ls
+   35  praccomp
+   36  ls praccomp
+   37  rm test.txt
+   38  ls
+   39  clear
+   40  cd
+   41  wget
+   42  cd
+   43  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+   44  ls
+   45  bash Miniconda3-latest-Linux-x86_64.sh
+   46  exit
+   47  md5sum Miniconda3-latest-Linux-x86_64.sh 
+   48  clear
+   49  conda install mamba -c conda-forge
+   50  mamba
+   51  clear
+   52  mamba install htop
+   53  mamba install htop -c conda-forge
+   54  htop
+   55  ls
+   56  mkdir praccomp
+   57  cd praccomp
+   58  git
+   59  git clone https://github.com/garretgaddy/practcomp_2022.git
+   60  ls
+   61  cd practcomp_2022/
+   62  nano README.md
+   63  ls
+   64  git status
+   65  git add README.md
+   66  git status
+   67  git commit -m "Added README.md"
+   68  git config --global user.email "ggaddy19@gmail.com"
+   69  git config --global user.name "Garret Gaddy"
+   70  git commit -m "Added README.md"
+   71  git status
+   72  git push
+   73  history
+   74  history > log.txt
