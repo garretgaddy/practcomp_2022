@@ -95,3 +95,11 @@ First Header | Second Header
 Content Cell 1 | Content Cell 2
 Content Column 1 | Content Column 2
 
+## EMOJI
+
+:spider:
+:smile:
+:angry:
+:running:
+
+
