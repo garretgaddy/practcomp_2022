@@ -50,9 +50,34 @@ Ordered
 
 ## IMAGES
 
-! [Basketball Logo]https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Carter_vs_Gasol%2C_Lakers_vs_Magic.jpg/640px-Carter_vs_Gasol%2C_Lakers_vs_Magic.jpg
+! [Basketball Logo]
 
 ## LINKS
 
 https://brewerlab.net - automatic
 [Brewer Lab](https://brewerlab.net)
+
+## BACKSLASH ESCAPE
+
+\*Literal asterisks\*
+
+## FENCED CODE BLOCKS
+
+Generic Example:
+
+```
+ech0 "Hello"
+```
+
+Python Example:
+
+```python
+print ("Hello")
+```
+
+R example:
+
+```r
+x<- 4^2
+```
+
