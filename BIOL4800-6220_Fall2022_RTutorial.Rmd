@@ -950,20 +950,90 @@ spid.gen
 boxplot(spid.gen$left.bulb/spid.gen$carapace.length ~ spid.gen$habitat)
 ```
 
+  b. Scatter Plotting
+ 
+```{r}
+plot(spid.gen$left.bulb ~ spid.gen$right.bulb)
+```
 
+```{r}
+plot(spid.gen$left.bulb ~ spid.gen$right.bulb, pch = as.character(spid.gen$habitat))
+```
 
+  c. Linear Regression
+  
+```{r}
+gen.reg <- lm(spid.gen$left.bulb ~ spid.gen$right.bulb)
+gen.reg
+```
 
+```{r}
+summary(gen.reg)
+```
 
+```{r}
+plot(spid.gen$left.bulb ~ spid.gen$right.bulb, pch = as.character(spid.gen$habitat))
+abline(gen.reg)
+```
 
+  d. Correlation Coefficeints & Spearman Rank Correlation
+  
+```{r}
+cor.gen <- with(spid.gen, cor(left.bulb, right.bulb))
+cor.gen^2
+```
 
+```{r}
+spearman.cor.gen <- with(spid.gen, cor(left.bulb, right.bulb, method ="spearman"))
+spearman.cor.gen^2
+```
 
+  e. Residuals
+  
+```{r}
+residuals(gen.reg)
+```
 
+  f. Transformations
+  
+```{r}
+plot(log10(spid.gen$left.bulb) ~ spid.gen$right.bulb)
+```
 
+2. Comparing Discrete Treatment Effects
+  a. Chi-squared
+  
+```{r}
+obs_weighted <- c(4,15,6,15,18,2)
+obs_fair <- c(10,10,10,10,10,10)
+exp <- c(.16,.17,.16,.17,.17,.17)
+chisq.test(obs_weighted, p=exp)
+chisq.test(obs_fair, p=exp)
+```
 
+  b. T-tests
 
+```{r}
+#HO - true mean is equal to 0, but you can set true mean to other values with mu=
+t.test(spid.gen$carapace.length)
 
+t.test(spid.gen$carapace.length, mu=29)
+```
 
+```{r}
+habitat.t2 <- t.test(spid.gen$left.bulb ~ spid.gen$habitat)
+habitat.t2
+```
 
+```{r}
+habitat.tless <- t.test(spid.gen$left.bulb, alternative = "less")
+habitat.tless
+```
+
+```{r}
+habitat.tgreater <- t.test(spid.gen$left.bulb, alternative = "greater")
+habitat.tgreater
+```
 
 
 
