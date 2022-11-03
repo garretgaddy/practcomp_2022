@@ -1035,6 +1035,97 @@ habitat.tgreater <- t.test(spid.gen$left.bulb, alternative = "greater")
 habitat.tgreater
 ```
 
+  c. Analysis of Variance (ANOVA)
+  
+```{r}
+library(car)
+```
+
+```{r}
+gen.lm <- lm(spid.gen$left.bulb ~ spid.gen$habitat)
+summary(gen.lm)
+```
+
+```{r}
+anova(gen.lm)
+```
+
+```{r}
+gen.anova <- aov(spid.gen$left.bulb ~ spid.gen$habitat)
+summary(gen.anova)
+```
+
+```{r}
+gapminder.lifeexp.continent.anova <- aov(gapminder$lifeExp ~ gapminder$continent)
+summary(gapminder.lifeexp.continent.anova)
+```
+
+```{r}
+gapminder.tukey.two.way <- TukeyHSD(gapminder.lifeexp.continent.anova)
+gapminder.tukey.two.way
+```
+
+  d. Analysis of Co-Variants (ANCOVA)
+    
+```{r}
+boxplot(spid.gen$left.bulb ~ spid.gen$habitat)
+```
+
+
+```{r}
+gen.ancova <- lm(spid.gen$left.bulb ~ spid.gen$habitat*spid.gen$carapace.length)
+summary(gen.ancova)
+
+```
+
+
+```{r}
+gapminder.lifeexp.continent_GDP.ancova <- lm(gapminder$lifeExp ~ gapminder$continent * gapminder$gdpPercap)
+summary(gapminder.lifeexp.continent_GDP.ancova)
+```
+
+
+3. Principal Component Analysis
+
+```{r}
+sp.matrix <- with(spid.gen, cbind(left.bulb, right.bulb, carapace.length, leg4.length))
+sp.matrix
+```
+
+
+```{r}
+sp.pca <- princomp(sp.matrix, cor = TRUE)
+summary(sp.pca)
+```
+
+
+```{r}
+loadings(sp.pca)
+```
+
+
+```{r}
+biplot(sp.pca)
+```
+
+
+```{r}
+install.packages('ggfortify', dependencies = T)
+```
+
+
+```{r}
+library('ggfortify')
+sp.pca.plot <- autoplot(sp.pca,
+                        data = spid.gen,
+                        colour = 'habitat')
+sp.pca.plot
+```
+
+
+
+
+
 
 
 
