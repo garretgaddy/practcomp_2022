@@ -1122,6 +1122,192 @@ sp.pca.plot <- autoplot(sp.pca,
 sp.pca.plot
 ```
 
+```{r}
+plot(1:25, rep(0.25,25), pch=1:25, col=1:25, ylim=c(0,6), cex=2, ylab="Line types (lty) 1 to 6", xlab="Plotting Character (pch) 1 to 25 and colours (col) 1 to 8", main="Line types (lty), plotting characters (pch(,\nand colors (col) for plot and xyplot", lab=c(25,7,2))
+
+points(1:8, rep(0.5,8), pch=20, col=1:8, cex=3)
+
+abline(h=1:6, lty=1:6, col=1:6, lwd=3)
+```
+
+
+```{r}
+pdf("./results/PlotCheatSheet.pdf")
+
+plot(1:25, rep(0.25,25), pch=1:25, col=1:25, ylim=c(0,6), cex=2, ylab="Line types (lty) 1 to 6", xlab="Plotting Character (pch) 1 to 25 and colours (col) 1 to 8", main="Line types (lty), plotting characters (pch(,\nand colors (col) for plot and xyplot", lab=c(25,7,2))
+
+points(1:8, rep(0.5,8), pch=20, col=1:8, cex=3)
+
+abline(h=1:6, lty=1:6, col=1:6, lwd=3)
+
+dev.off()
+```
+
+## Looping and Conditionals
+
+a. If then statements
+
+
+```{r}
+x <- 0
+if(x > 0){
+  print("Positive Number")
+} else if (x < 0) {
+  print("Negative Number")
+} else
+  print("Zero")
+```
+
+```{r}
+a <- c(5,7,2,9)
+ifelse(a %% 2 == 0, "even", "odd")
+```
+
+b. For Loops
+
+```{r}
+z <- c(2,5,3,9,8,11,6)
+count <- 0
+
+for (val in z) {
+  if(val %% 2 == 0) count = count+1
+}
+print(count)
+```
+
+
+c. While Statement
+
+```{r}
+i <- 1
+while(i < 5) {
+  print(i)
+  i = i + 1
+}
+```
+
+
+d. Interruptions
+
+```{r}
+x <- 1:5
+
+for (val in x) {
+  if (val == 3) {
+    break
+  }
+  print(val)
+}
+```
+
+```{r}
+x <- 1:5
+for (val in x) {
+  if (val == 3) {
+    next
+  }
+  print(val)
+}
+```
+
+
+```{r}
+x <- 1
+repeat {
+  print(x)
+  x = x+1
+  if (x == 20) {
+    break
+  }
+}
+```
+
+## Randomization and Dataset Management (short)
+
+a. Dataset Management
+
+```{r}
+B <- matrix(
+  c(2,4,3,1,5,87),
+  nrow=3,
+  ncol=2
+  
+)
+
+B
+```
+
+```{r}
+t(B)
+```
+
+```{r}
+C <- matrix(
+  c(7,4,2),
+  nrow=3,
+  ncol=1,
+)
+
+C
+```
+
+```{r}
+BC <- cbind(B, C)
+
+BC
+```
+
+```{r}
+c(B)
+```
+
+b. Randomizations
+
+```{r}
+# rnorm(n, mean, sd)
+# sample(x, size, replace = FALSE, prob = NULL)
+```
+
+
+```{r}
+ndist <- rnorm(100, 50, 10)
+ndist
+```
+
+```{r}
+mean(ndist)
+sd(ndist)
+```
+
+```{r}
+hist(ndist)
+```
+
+```{r}
+sample(ndist, 10)
+```
+
+```{r}
+test <- 1:100
+test
+```
+
+```{r}
+(sample(test, 50, replace = FALSE))
+```
+
+```{r}
+sample(test, 50, replace = TRUE)
+```
+
+
+
+
+
+
+
+
+
 
 
 
